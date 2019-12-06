@@ -36,7 +36,7 @@ var frameRemains;
 
 const flowScheduler = new Scheduler(psychoJS);
 // const dialogCancelScheduler = new Scheduler(psychoJS);
-psychoJS.scheduleCondition(function(), flowScheduler, dialogCancelScheduler);
+psychoJS.scheduleCondition(fowScheduler);
 // { return (psychoJS.gui.dialogComponent.button === 'OK'); }
 // flowScheduler gets run if the participants presses OK
 flowScheduler.add(updateInfo); // add timeStamp
