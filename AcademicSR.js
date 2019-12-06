@@ -25,19 +25,19 @@ psychoJS.openWindow({
 
 // store info about the experiment session:
 let expName = 'AcademicSR';  // from the Builder filename that created this script
-let expInfo = {'participant': '', 'session': '001'};
+let expInfo = {};
 var frameDur;
 var frameRemains;
 // schedule the experiment:
-psychoJS.schedule(psychoJS.gui.DlgFromDict({
-  dictionary: expInfo,
-  title: expName
-}));
+// psychoJS.schedule(psychoJS.gui.DlgFromDict({
+//   dictionary: expInfo,
+//   title: expName
+// }));
 
 const flowScheduler = new Scheduler(psychoJS);
-const dialogCancelScheduler = new Scheduler(psychoJS);
-psychoJS.scheduleCondition(function() { return (psychoJS.gui.dialogComponent.button === 'OK'); }, flowScheduler, dialogCancelScheduler);
-
+// const dialogCancelScheduler = new Scheduler(psychoJS);
+psychoJS.scheduleCondition(function(), flowScheduler, dialogCancelScheduler);
+// { return (psychoJS.gui.dialogComponent.button === 'OK'); }
 // flowScheduler gets run if the participants presses OK
 flowScheduler.add(updateInfo); // add timeStamp
 // flowScheduler.add(InstructionsRoutineBegin);
@@ -50,7 +50,7 @@ flowScheduler.add(AllTrialsLoopEnd);
 flowScheduler.add(quitPsychoJS, '', true);
 
 // quit if user presses Cancel in dialog box:
-dialogCancelScheduler.add(quitPsychoJS, '', false);
+// dialogCancelScheduler.add(quitPsychoJS, '', false);
 
 psychoJS.start({expName, expInfo});
 
