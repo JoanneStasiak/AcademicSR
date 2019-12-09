@@ -54,24 +54,24 @@ flowScheduler.add(quitPsychoJS, '', true);
 
 psychoJS.start({expName, expInfo});
 
-function updateInfo() {
-  expInfo['date'] = util.MonotonicClock.getDateStr();  // add a simple timestamp
-  expInfo['expName'] = expName;
-  expInfo['psychopyVersion'] = '3.2.4';
-  expInfo['OS'] = window.navigator.platform;
+// function updateInfo() {
+//   expInfo['date'] = util.MonotonicClock.getDateStr();  // add a simple timestamp
+//   expInfo['expName'] = expName;
+//   expInfo['psychopyVersion'] = '3.2.4';
+//   expInfo['OS'] = window.navigator.platform;
 
-  // store frame rate of monitor if we can measure it successfully
-  expInfo['frameRate'] = psychoJS.window.getActualFrameRate();
-  if (typeof expInfo['frameRate'] !== 'undefined')
-    frameDur = 1.0/Math.round(expInfo['frameRate']);
-  else
-    frameDur = 1.0/60.0; // couldn't get a reliable measure so guess
+//   // store frame rate of monitor if we can measure it successfully
+//   expInfo['frameRate'] = psychoJS.window.getActualFrameRate();
+//   if (typeof expInfo['frameRate'] !== 'undefined')
+//     frameDur = 1.0/Math.round(expInfo['frameRate']);
+//   else
+//     frameDur = 1.0/60.0; // couldn't get a reliable measure so guess
 
-  // add info from the URL:
-  util.addInfoFromUrl(expInfo);
+//   // add info from the URL:
+//   util.addInfoFromUrl(expInfo);
 
-  return Scheduler.Event.NEXT;
-}
+//   return Scheduler.Event.NEXT;
+// }
 var globalClock;
 var testQsClock;
   // Initialize components for Routine "Instructions"
