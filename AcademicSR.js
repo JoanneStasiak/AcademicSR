@@ -29,17 +29,17 @@ let expInfo = {};
 var frameDur;
 var frameRemains;
 // schedule the experiment:
-// psychoJS.schedule(psychoJS.gui.DlgFromDict({
-//   dictionary: expInfo,
-//   title: expName
-// }));
+psychoJS.schedule(psychoJS.gui.DlgFromDict({
+  dictionary: expInfo,
+  title: expName
+}));
 
 const flowScheduler = new Scheduler(psychoJS);
-// const dialogCancelScheduler = new Scheduler(psychoJS);
-// psychoJS.scheduleCondition(flowScheduler);
-// { return (psychoJS.gui.dialogComponent.button === 'OK'); }
+const dialogCancelScheduler = new Scheduler(psychoJS);
+psychoJS.scheduleCondition(flowScheduler);
+{ return (psychoJS.gui.dialogComponent.button === 'OK'); }
 // flowScheduler gets run if the participants presses OK
-// flowScheduler.add(updateInfo); // add timeStamp
+flowScheduler.add(updateInfo); // add timeStamp
 // flowScheduler.add(InstructionsRoutineBegin);
 // flowScheduler.add(InstructionsRoutineEachFrame);
 // flowScheduler.add(InstructionsRoutineEnd);
@@ -50,28 +50,28 @@ flowScheduler.add(AllTrialsLoopEnd);
 flowScheduler.add(quitPsychoJS, '', true);
 
 // quit if user presses Cancel in dialog box:
-// dialogCancelScheduler.add(quitPsychoJS, '', false);
+dialogCancelScheduler.add(quitPsychoJS, '', false);
 
 psychoJS.start({expName, expInfo});
 
-// function updateInfo() {
-//   expInfo['date'] = util.MonotonicClock.getDateStr();  // add a simple timestamp
-//   expInfo['expName'] = expName;
-//   expInfo['psychopyVersion'] = '3.2.4';
-//   expInfo['OS'] = window.navigator.platform;
+function updateInfo() {
+  expInfo['date'] = util.MonotonicClock.getDateStr();  // add a simple timestamp
+  expInfo['expName'] = expName;
+  expInfo['psychopyVersion'] = '3.2.4';
+  expInfo['OS'] = window.navigator.platform;
 
-//   // store frame rate of monitor if we can measure it successfully
-//   expInfo['frameRate'] = psychoJS.window.getActualFrameRate();
-//   if (typeof expInfo['frameRate'] !== 'undefined')
-//     frameDur = 1.0/Math.round(expInfo['frameRate']);
-//   else
-//     frameDur = 1.0/60.0; // couldn't get a reliable measure so guess
+  // store frame rate of monitor if we can measure it successfully
+  expInfo['frameRate'] = psychoJS.window.getActualFrameRate();
+  if (typeof expInfo['frameRate'] !== 'undefined')
+    frameDur = 1.0/Math.round(expInfo['frameRate']);
+  else
+    frameDur = 1.0/60.0; // couldn't get a reliable measure so guess
 
-//   // add info from the URL:
-//   util.addInfoFromUrl(expInfo);
+  // add info from the URL:
+  util.addInfoFromUrl(expInfo);
 
-//   return Scheduler.Event.NEXT;
-// }
+  return Scheduler.Event.NEXT;
+}
 var globalClock;
 var testQsClock;
   // Initialize components for Routine "Instructions"
